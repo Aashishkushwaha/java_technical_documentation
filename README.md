@@ -1,0 +1,1 @@
+Simple Java technical documentation for the beginner who wants to know the basics of JAVA programming language. It'll give a boost to your knowledge of JAVA programming language.

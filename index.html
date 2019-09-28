@@ -1,0 +1,2601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="technical_doc.css">
+    <title>Java Technical Document</title>
+</head>
+  <script>
+    let setTheme = (primary_color, secondary_color, link_color, link_hover_color,
+     table_header_border, theme_color, font_color, code_color) => {
+        root.style.setProperty('--primary-color', primary_color);
+        root.style.setProperty('--secondary-color', secondary_color);
+        root.style.setProperty('--link-color', link_color);
+        root.style.setProperty('--link-hover-color', link_hover_color);
+        root.style.setProperty('--table-header-border', table_header_border);
+        root.style.setProperty('--theme-color', theme_color);
+        root.style.setProperty('--font-color', font_color);
+        root.style.setProperty('--code-color', code_color);
+    }
+
+    let changeTheme = () => {
+      let root = document.getElementById("root");      
+      if(getComputedStyle(root).getPropertyValue('--primary-color') === '#fff'){
+        setTheme('#000000c2', '#f7f5f545', '#f7f5f5f5', '#ccc', '#f0f0f0e6', '255,255,255', '#fff','#f0f0f00f');
+      }
+      else{
+        setTheme('#fff', '#777','#969696', '#000', '#000', '0,0,0', '#000', '#f0f0f0cc');
+      }
+    }
+  </script>
+<body id="root">
+    <div class="theme-box" onclick="changeTheme();">&nbsp;</div>
+    <div class="main-container">
+        <nav class="sidebar-wrapper" id="navbar">
+            <div class="header">
+                <header class="main-heading">Java Documentation</header>
+            </div>
+            <div class="nav-links">
+                <div class="link">
+                    <a href="#Introduction" class="nav-link" target="_self"><li class="link-outline">Introduction</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Features_of_JAVA" class="nav-link" target="_self"><li class="link-outline">Features of JAVA</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Hello_World" class="nav-link" target="_self"><li class="link-outline">Hello World</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Variables" class="nav-link"><li class="link-outline">Variables</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Types_of_Variables" class="nav-link"><li class="link-outline">Types of Variables</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Datatypes" class="nav-link"><li class="link-outline">Datatypes</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Decision_Making" class="nav-link"><li class="link-outline">Decision Making</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Looping_Statements" class="nav-link"><li class="link-outline">Looping Statements</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Arrays" class="nav-link"><li class="link-outline">Arrays</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Methods" class="nav-link"><li class="link-outline">Methods</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Inheritance" class="nav-link"><li class="link-outline">Inheritance</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Overriding" class="nav-link"><li class="link-outline">Overriding</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Polymorphism" class="nav-link"><li class="link-outline">Polymorphism</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Abstraction" class="nav-link"><li class="link-outline">Abstraction</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Encapsulation" class="nav-link"><li class="link-outline">Encapsulation</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Interfaces" class="nav-link"><li class="link-outline">Interfaces</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#Packages" class="nav-link"><li class="link-outline">Packages</li></a></li>
+                </div>
+                <div class="link">
+                    <a href="#References" class="nav-link"><li class="link-outline">References</li></a></li>
+                </div>
+            </div>
+        </nav>
+        <main id="main-doc" class="main-doc">
+            <div class="content-wrapper">
+                <section class="main-section" id="Introduction">
+                    <header>Introduction</header>
+                    <p class="para">
+                        Java is a high-level programming language originally developed by Sun Microsystems and released in 1995.
+                        Java runs on a variety of platforms, such as Windows, Mac OS, and the various versions of UNIX.
+                        This tutorial gives a complete understanding of Java. This reference will take you through simple and practical approaches while learning Java Programming language.
+                    </p>
+                    <p class="para">
+                        Java programming language was originally developed by Sun Microsystems which was initiated by James Gosling and released in 1995 as core component of Sun Microsystems' Java platform (Java 1.0 [J2SE]).
+                    </p>
+                    <p class="para">
+                        The latest release of the Java Standard Edition is Java SE 8. With the advancement of Java and its widespread popularity, multiple configurations were built to suit various types of platforms. For example: J2EE for Enterprise Applications, J2ME for Mobile Applications.
+                    </p>
+                    <p class="para">
+                        The new J2 versions were renamed as Java SE, Java EE, and Java ME respectively. Java is guaranteed to be Write Once, Run Anywhere.
+                    </p>
+                </section>
+                <section class="main-section" id="Features_of_JAVA">
+                    <header>Features of JAVA</header>
+                    <p class="para">
+                        Below are some of the key features of JAVA. <br />
+                        Java is −
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Object Oriented −</strong> In Java, everything is an Object.
+                            Java can be easily extended since it is based on the Object model.
+                        </li>
+                        <li>
+                            <strong>Platform Independent −</strong>Unlike many other programming languages including C and C++, when Java is compiled,
+                            it is not compiled into platform specific machine, rather into platform independent byte code.
+                            This byte code is distributed over the web and interpreted by the Virtual Machine (JVM) on whichever platform it is being run on.
+                        </li>
+                        <li>
+                            <strong>Simple −</strong> Java is designed to be easy to learn. If you understand the basic concept of OOP Java, 
+                            it would be easy to master.
+                        </li>
+                        <li>
+                            <strong>Secure −</strong> With Java's secure feature it enables to develop virus-free, tamper-free systems.
+                            Authentication techniques are based on public-key encryption.
+                        </li>
+                        <li>
+                            <strong>Architecture-neutral −</strong> Java compiler generates an architecture-neutral object file format, 
+                            which makes the compiled code executable on many processors, with the presence of Java runtime system.
+                        </li>
+                        <li>
+                            <strong>Portable −</strong> Being architecture-neutral and having no implementation dependent aspects of the specification makes Java portable. 
+                            Compiler in Java is written in ANSI C with a clean portability boundary, which is a POSIX subset.
+                        </li>
+                        <li>
+                            <strong>Robust −</strong> Java makes an effort to eliminate error prone situations by emphasizing mainly on compile time error checking and runtime checking.
+                        </li>
+                        <li>
+                            <strong>Multithreaded −</strong> With Java's multithreaded feature it is possible to write programs that can perform many tasks simultaneously. 
+                            This design feature allows the developers to construct interactive applications that can run smoothly.
+                        </li>
+                        <li>
+                            <strong>Interpreted −</strong>
+                            Java byte code is translated on the fly to native machine instructions and is not stored anywhere.
+                            The development process is more rapid and analytical since the linking is an incremental and light-weight process.
+                        </li>
+                        <li>
+                            <strong>High Performance −</strong>
+                            With the use of Just-In-Time compilers, Java enables high performance.
+                        </li>
+                        <li>
+                            <strong>Distributed −</strong>
+                            Java is designed for the distributed environment of the internet.
+                        </li>
+                        <li>
+                            <strong>Dynamic −</strong> Java is considered to be more dynamic than C or C++ since it is designed to adapt to an evolving environment.
+                            Java programs can carry extensive amount of run-time information that can be used to verify and resolve accesses to objects on run-time.
+                        </li>
+                    </ul>
+                </section>
+                <section class="main-section" id="Hello_World">
+                    <header>Hello World</header>
+                    <p class="para">
+                        Let us look at a simple code that will print the words Hello World.</p>
+                    <div class="code" style="margin:0px 40px;">
+                        <code>
+                            public class MyFirstJavaProgram {
+                            <br />    
+                            <span style="padding-left: 2%;">/* This is my first java program.</span><br />
+                            <span style="padding-left: 2%;">* This will print 'Hello World' as the output</span><br />
+                            <span style="padding-left: 2%;">*/</span>
+                                <br />
+                                <span style="padding-left: 2%;">public static void main(String []args) {</span>
+                                    <br />
+                                <span style="padding-left: 4%;">System.out.println("Hello World"); // prints Hello World </span><br />
+                                <span style="padding-left: 2%;"> } </span><br />
+                            }
+                            <br /><br />
+                            <output>
+                                Output: Hello World
+                            </output>
+                        </code>
+                    </div>
+                </section>
+                <section class="main-section" id="Variables">
+                    <header>Variables</header>
+                    <p class="para">
+                        A variable provides us with named storage that our programs can manipulate. 
+                        Each variable in Java has a specific type, which determines the size and layout of the variable's memory; 
+                        the range of values that can be stored within that memory; and the set of operations that can be applied to the variable.
+                    </p>
+                    <p class="para">
+                        You must declare all variables before they can be used. Following is the basic form of a variable declaration −
+                    </p>
+                    <div class="code" style="margin:0px 40px;">
+                        <code>
+                            data type variable [ = value][, variable [ = value] ...] ;
+                        </code>
+                    </div>
+                    <p class="para">
+                        Here data type is one of Java's datatypes and variable is the name of the variable. To declare more than one variable of the specified type, you can use a comma-separated list.
+                    </p>
+                    <p class="para">
+                        Following are valid examples of variable declaration and initialization in Java −
+                    </p>
+                    <div class="code" style="margin:0px 40px;">
+                        <code>
+                            int a, b, c;         // Declares three ints, a, b, and c. <br />
+                            int a = 10, b = 10;  // Example of initialization <br />
+                            byte B = 22;         // initializes a byte type variable B. <br/>
+                            double pi = 3.14159; // declares and assigns a value of PI. <br />
+                            char a = 'a';        // the char variable a iis initialized with value 'a' <br />
+                        </code>
+                    </div>
+                    <p class="para">
+                        This chapter will explain various variable types available in Java Language. There are three kinds of variables in Java −
+                        <ul>
+                            <li>variables</li>
+                            <li>Instance variables</li>
+                            <li>Class/Static variables</li>
+                        </ul>
+                    </p>
+                </section>
+                <section class="main-section" id="Types_of_Variables">
+                    <header>Types of Variables</header>
+                    <h4 style="padding-left: 20px;">Local Variables</h4>
+                    <ul>
+                        <li>Local variables are declared in methods, constructors, or blocks.
+                        </li>
+                        <li>Local variables are created when the method, constructor or block is entered and the variable will be destroyed once it exits the method, constructor, or block.
+                        </li>
+                        <li>Access modifiers cannot be used for local variables.
+                        </li>    
+                        <li>Local variables are visible only within the declared method, constructor, or block.
+                        </li>    
+                        <li>Local variables are implemented at stack level internally.
+                        </li>
+                        <li>There is no default value for local variables, so local variables should be declared and an initial value should be assigned before the first use.
+                        </li> 
+                    </ul>
+                    <div class="code" style="margin:0px 40px;">
+                        <code>
+                            import java.io.*; <br />
+                            public class Test { <br />
+                                <span style="padding-left: 2%;">
+                                public void pupAge() {</span><br />
+                                <span style="padding-left: 4%;">
+                                int age = 0;</span><br />
+                                <span style="padding-left: 4%;">
+                                age = age + 7;
+                                </span><br />
+                                <span style="padding-left: 4%;">
+                                System.out.println("Puppy age is : " + age);
+                                </span><br />
+                                <span style="padding-left: 2%;">
+                                }
+                                </span><br />
+                                <span style="padding-left: 2%;">
+                                public static void main(String args[]) {</span><br />
+                                <span style="padding-left: 4%;">
+                                Test test = new Test();</span><br />
+                                <span style="padding-left: 4%;">
+                                test.pupAge();
+                                </span><br />
+                                <span style="padding-left: 2%;">
+                                }
+                                </span><br />
+                            }
+                            <br /><br />
+                            <output>
+                                Output: Puppy age is : 7
+                            </output>
+                        </code>
+                    </div>
+                    <h4 style="padding-left: 20px;">Instance Variables</h4>
+                    <ul>
+                        <li>Instance variables are declared in a class, but outside a method, constructor or any block.
+                        </li>
+                        <li>When a space is allocated for an object in the heap, a slot for each instance variable value is created.
+                        </li>
+                        <li>Instance variables are created when an object is created with the use of the keyword 'new' and destroyed when the object is destroyed.
+                        </li>    
+                        <li>Instance variables hold values that must be referenced by more than one method, constructor or block, 
+                            or essential parts of an object's state that must be present throughout the class.
+                        </li>    
+                        <li>Instance variables can be declared in class level before or after use.
+                        </li>
+                        <li>Access modifiers can be given for instance variables.
+                        </li>
+                        <li>The instance variables are visible for all methods, constructors and block in the class. 
+                            Normally, it is recommended to make these variables private (access level). 
+                            However, visibility for subclasses can be given for these variables with the use of access modifiers.
+                        </li>
+                        <li>Instance variables have default values. For numbers, the default value is 0, for Booleans it is false, 
+                            and for object references it is null. Values can be assigned during the declaration or within the constructor.
+                        </li>
+                        <li>Instance variables can be accessed directly by calling the variable name inside the class. 
+                            However, within static methods (when instance variables are given accessibility), they should be called using the fully qualified name. ObjectReference.VariableName.
+                        </li> 
+                    </ul>
+                    <div class="code" style="margin:0px 40px;">
+                        <code>
+                            import java.io.*; <br />
+                            public class Employee { <br />
+                            <span style="padding-left: 2%;">
+                                // this instance variable is visible for any child class.</span><br />
+                            <span style="padding-left: 2%;">
+                            public String name;</span><br />
+                            <span style="padding-left: 2%;">
+                            // salary  variable is visible in Employee class only.</span><br />
+                            <span style="padding-left: 2%;">
+                            private double salary; </span><br>
+                            <span style="padding-left: 2%;">
+                            // The name variable is assigned in the constructor.</span><br />
+                            <span style="padding-left: 2%;">
+                            public Employee (String empName) { </span><br />
+                                <span style="padding-left: 4%;">
+                                name = empName; </span><br />
+                                <span style="padding-left: 2%;">
+                            }</span><br />
+                            <span style="padding-left: 2%;">
+                            // The salary variable is assigned a value.</span><br />
+                            <span style="padding-left: 2%;">
+                            public void setSalary(double empSal) { </span><br />
+                                <span style="padding-left: 4%;">
+                                salary = empSal; </span><br />
+                                <span style="padding-left: 2%;">
+                            }</span><br />
+                            <span style="padding-left: 2%;">
+                            // This method prints the employee details.</span><br />
+                            <span style="padding-left: 2%;">
+                            public void printEmp() { </span><br />
+                                <span style="padding-left: 4%;">
+                                System.out.println("name  : " + name ); </span><br />
+                                <span style="padding-left: 4%;">
+                                System.out.println("salary :" + salary); </span><br />
+                                <span style="padding-left: 2%;">
+                            }</span><br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]) { </span> <br />
+                                <span style="padding-left: 4%;">
+                                Employee empOne = new Employee("Ransika"); </span><br />
+                                <span style="padding-left: 4%;">
+                                empOne.setSalary(1000);</span><br />
+                                <span style="padding-left: 4%;">
+                                empOne.printEmp();</span><br />
+                                <span style="padding-left: 2%;">
+                            }</span><br />
+                            }
+                            <br /><br />
+                            <output>
+                                Output: <br />
+                                name  : Ransika <br />
+                                salary :1000.0
+                            </output>
+                        </code>
+                    </div>
+                    <h4 style="padding-left: 20px;">Class/Static Variables</h4>
+                    <ul>
+                        <li>Class variables also known as static variables are declared with the static keyword in a class, but outside a method, constructor or a block.
+                        </li>
+                        <li>There would only be one copy of each class variable per class, regardless of how many objects are created from it.
+                        </li>
+                        <li>Static variables are rarely used other than being declared as constants. 
+                            Constants are variables that are declared as public/private, final, and static. Constant variables never change from their initial value.
+                        </li>    
+                        <li>Static variables are stored in the static memory. 
+                            It is rare to use static variables other than declared final and used as either public or private constants.
+                        </li>    
+                        <li>Static variables are created when the program starts and destroyed when the program stops.
+                        </li>
+                        <li>Default values are same as instance variables. For numbers, the default value is 0; for Booleans, 
+                            it is false; and for object references, it is null. Values can be assigned during the declaration or within the constructor. 
+                            Additionally, values can be assigned in special static initializer blocks.
+                        </li>
+                        <li>Static variables can be accessed by calling with the class name ClassName.VariableName.
+                        </li>
+                        <li>When declaring class variables as public static final, then variable names (constants) are all in upper case. 
+                            If the static variables are not public and final, the naming syntax is the same as instance and local variables.
+                        </li>
+                    </ul>
+                    <div class="code" style="margin:0px 40px;">
+                        <code>
+                            import java.io.*; <br />
+                            public class Employee { <br />
+                            
+                                <span style="padding-left: 2%;">
+                                // salary  variable is a private static variable <br /></span>
+                                <span style="padding-left: 2%;">
+                                private static double salary; <br /></span>
+                                <span style="padding-left: 2%;">
+                                // DEPARTMENT is a constant <br /></span>
+                                <span style="padding-left: 2%;">
+                                public static final String DEPARTMENT = "Development "; <br /></span>
+                                <span style="padding-left: 2%;">
+                                public static void main(String args[]) {</span><br />
+                                    <span style="padding-left: 4%;">
+                                    salary = 1000;</span><br />
+                                    <span style="padding-left: 4%;">
+                                    System.out.println(DEPARTMENT + "average salary:" + salary);
+                                    </span><br />
+                                    <span style="padding-left: 2%;">
+                                }
+                                </span><br />
+                            }
+                            <br /><br />
+                            <output>
+                                Output: Development average salary:1000
+                            </output>
+                        </code>
+                    </div>
+                </section>
+                <section class="main-section" id="Datatypes">
+                    <header>Datatypes</header>
+                    <p class="para">
+                    Variables are nothing but reserved memory locations to store values. This means that when you create a variable you reserve some space in the memory.
+                    Based on the data type of a variable, the operating system allocates memory and decides what can be stored in the reserved memory. 
+                    Therefore, by assigning different data types to variables, you can store integers, decimals, or characters in these variables.
+                    </p>
+                    <p class="para">
+                    There are two data types available in Java −
+                    <ul>
+                    <li>Primitive Data Types</li>
+                    <li>Reference/Object Data Types</li>
+                    </ul>
+                    </p>
+                    <h4 style="padding-left: 20px;">Primitive Datatypes</h4>
+                    <ul>
+                    <li><strong> byte </strong>
+                        <ul style="list-style-type: square;">
+                            <li>Byte data type is an 8-bit signed two's complement integer</li>
+                            <li>Minimum value is -128 (-2^7)</li>
+                            <li>Maximum value is 127 (inclusive)(2^7 -1)</li>
+                            <li>Default value is 0</li>
+                            <li>Byte data type is used to save space in large arrays, mainly in place of integers, since a byte is four times smaller than an integer.
+                            </li>
+                            <li>Example: byte a = 100, byte b = -50</li>
+                        </ul>
+                    </li>
+                    <li><strong> short </strong>
+                        <ul style="list-style-type: square;">
+                            <li>Short data type is a 16-bit signed two's complement integer</li>
+                            <li>Minimum value is -32,768 (-2^15)</li>
+                            <li>Maximum value is 32,767 (inclusive) (2^15 -1)</li>
+                            <li>Default value is 0</li>
+                            <li>Short data type can also be used to save memory as byte data type. A short is 2 times smaller than an integer.</li>
+                            <li>Example: short s = 10000, short r = -20000</li>
+                        </ul>
+                    </li>
+                    <li><strong> int </strong>
+                        <ul style="list-style-type: square;">
+                            <li>Int data type is a 32-bit signed two's complement integer.</li>
+                            <li>Minimum value is - 2,147,483,648 (-2^31)</li>
+                            <li>Maximum value is 2,147,483,647(inclusive) (2^31 -1)</li>
+                            <li>Default value is 0</li>
+                            <li>Integer is generally used as the default data type for integral values unless there is a concern about memory.</li>
+                            <li>Example: int a = 100000, int b = -200000</li>
+                        </ul>
+                    </li>
+                    <li><strong> long </strong>
+                        <ul style="list-style-type: square;">
+                            <li>Long data type is a 64-bit signed two's complement integer</li>
+                            <li>Minimum value is -9,223,372,036,854,775,808(-2^63)</li>
+                            <li>Maximum value is 9,223,372,036,854,775,807 (inclusive)(2^63 -1)</li>
+                            <li>Default value is 0L</li>
+                            <li>This type is used when a wider range than int is needed.</li>
+                            <li>Example: long a = 100000L, long b = -200000L
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong> float </strong>
+                        <ul style="list-style-type: square;">
+                            <li>Float data type is a single-precision 32-bit IEEE 754 floating point.</li>
+                            <li>Float is mainly used to save memory in large arrays of floating point numbers</li>
+                            <li>Float data type is never used for precise values such as currency.</li>
+                            <li>Default value is 0.0f</li>
+                            <li>Example: float f1 = 234.5f</li>
+                        </ul>
+                    </li>
+                    <li><strong> double </strong>
+                        <ul style="list-style-type: square;">
+                            <li>double data type is a double-precision 64-bit IEEE 754 floating point</li>
+                            <li>This data type is generally used as the default data type for decimal values, generally the default choice</li>
+                            <li>Double data type should never be used for precise values such as currency</li>
+                            <li>Default value is 0.0d</li>
+                            <li>Example: double d1 = 123.4</li>
+                        </ul>
+                    </li>
+                    <li><strong> boolean </strong>
+                        <ul style="list-style-type: square;">
+                            <li>boolean data type represents one bit of information</li>
+                            <li>There are only two possible values: true and false</li>
+                            <li>This data type is used for simple flags that track true/false conditions</li>
+                            <li>Default value is false</li>
+                            <li>Example: boolean one = true
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong> char </strong>
+                        <ul style="list-style-type: square;">
+                            <li>char data type is a single 16-bit Unicode character</li>
+                            <li>Minimum value is '\u0000' (or 0)</li>
+                            <li>Maximum value is '\uffff' (or 65,535 inclusive)</li>
+                            <li>Default value is '\u0000' (or 0)</li>
+                            <li>Char data type is used to store any character</li>
+                            <li>Example: char letterA = 'A'</li>
+                        </ul>
+                    </li>
+                    </ul>
+                    <h4 style="padding-left: 20px;">Primitive Datatypes</h4>
+                    <ul>
+                        <li>Reference variables are created using defined constructors of the classes. They are used to access objects. 
+                            These variables are declared to be of a specific type that cannot be changed. For example, Employee, Puppy, etc.</li>
+                        <li>Class objects and various type of array variables come under reference datatype.</li>
+                        <li>A reference variable can be used to refer any object of the declared type or any compatible type.</li>
+                        <li>Default value of any reference variable is null.</li>
+                        <li>Example: Animal animal = new Animal("giraffe");</li>
+                    </ul>
+                </section>
+                <section class="main-section" id="Decision_Making">
+                    <header>Decision Making</header>
+                    <p class="para">
+                        Decision making structures have one or more conditions to be evaluated or tested by the program, 
+                        along with a statement or statements that are to be executed if the condition is determined to be true, 
+                        and optionally, other statements to be executed if the condition is determined to be false.
+                    </p>   
+                    <p class="para">
+                        Following is the general form of a typical decision making structure found in most of the programming languages −
+                    </p>
+                    <div class="img-box">
+                      <figure>
+                        <img src="https://www.tutorialspoint.com/java/images/decision_making.jpg" />
+                        <figcaption style="text-align: center;">Fig.1 - general form of a typical decision making structure.</figcaption>
+                      </figure>
+                    </div>
+                    </div>
+                    <p class="para">
+                        Java programming language provides following types of decision making statements. Click the following links to check their detail.
+                    </p>
+                    <table width="80%" style="margin-left: 10%;" >
+                        <tr>
+                            <th>Sr.No.	</th>
+                            <th>Statement & Description</th>
+                        </tr>
+                        <tr>
+                            <td>1.</td>
+                            <td>if statement <br /> An <strong>if statement</strong> consists of a boolean expression followed by one or more statements.</td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>if-else statement <br /> An <strong>if statement</strong> can be followed by an optional <strong>else statement</strong>, 
+                                which executes when the boolean expression is false.</td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>nested if statement <br /> You can use one <strong>if</strong> or <strong>else if</strong> 
+                                statement inside another <strong>if</strong> or <strong>else if</strong> statement(s).</td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>switch statement <br /> A <strong>switch statement</strong> allows a variable to be tested for equality against a list of values.</td>
+                        </tr>
+                    </table>
+                    <h3 style="padding-left: 20px;">if statement</h3>
+                    <p class="para">
+                            The first contained statement (that can be a block) of an if statement only executes when the specified condition is true. 
+                            If the condition is false and there is not else keyword then the first contained statement will be skipped and execution 
+                            continues with the rest of the program. The condition is an expression that returns a boolean value.
+                    </p>
+                    <div class="code">
+                        <code>
+                            import java.util.Scanner;  <br />
+                            public class IfDemo 
+                            {  <br />
+                                <span style="padding-left: 2%;">
+                                public static void main(String[] args) {  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    int age;  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    Scanner inputDevice = new Scanner(System.in); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    System.out.print("Please enter Age: "); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    age = inputDevice.nextInt();  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    if(age > 18)  </span> <br />
+                                    <span style="padding-left: 6%;">
+                                        System.out.println("above 18 "); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                }</span> <br />
+                            }
+                            <br /> <br />
+                            Output: <br />
+                            Please enter Age: 19 <br />
+                            above 18
+                        </code>
+                    </div>
+                    <h3 style="padding-left: 20px;">if-else statement</h3>
+                    <p class="para">
+                            In if-else statements, if the specified condition in the if statement is false, 
+                            then the statemet after the else keyword (that can be a block) will execute.
+                    </p>
+                    <div class="code">
+                        <code>
+                            import java.util.Scanner;  <br />
+                            public class If_Else_Demo 
+                            {  <br />
+                                <span style="padding-left: 2%;">
+                                public static void main(String[] args) {  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    int age;  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    Scanner inputDevice = new Scanner(System.in); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    System.out.print("Please enter Age: "); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    age = inputDevice.nextInt();  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    if(age > 18)  </span> <br />
+                                    <span style="padding-left: 6%;">
+                                        System.out.println("above 18 "); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    else  </span> <br />
+                                    <span style="padding-left: 6%;">
+                                        System.out.println("below 18 "); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                }</span> <br />
+                            }
+                            <br /> <br />
+                            Output: <br />
+                            Please enter Age: 17 <br />
+                            below 18
+                        </code>
+                    </div>
+                    <h3 style="padding-left: 20px;">else-if ladder statement</h3>
+                    <p class="para">
+                        This statement following the else keyword can be another if or if-else statement. <br />
+                        That would looks like this: <br />
+                    </p>
+                    <p class="para">
+                        if(condition) <br />
+                        <span style="padding-left: 2%;">
+                            statements; </span> <br />
+                        else if (condition) <br />
+                        <span style="padding-left: 2%;">
+                            statements; </span> <br />
+                        else if(condition) <br />
+                        <span style="padding-left: 2%;">
+                            statement; </span> <br />
+                        else <br />
+                        <span style="padding-left: 2%;">
+                            statements; </span> <br />
+                    </p>
+                    <p class="para">
+                        Whenever the condition is true, the associated statement will be executed and the remaining conditions will be bypassed. 
+                        If none of the conditions are true then the else block will execute.
+                    </p>
+                    <div class="code">
+                        <code>
+                            import java.util.Scanner;  <br />
+                            public class Else_If_Ladder_Demo 
+                            {  <br />
+                                <span style="padding-left: 2%;">
+                                public static void main(String[] args) {  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    int age;  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    Scanner inputDevice = new Scanner(System.in); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    System.out.print("Please enter Age: "); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    age = inputDevice.nextInt();  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    if ( age >= 18 && age <=35 )  </span> <br />
+                                    <span style="padding-left: 6%;">
+                                        System.out.println("between 18-35 "); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    else if(age >35 && age <=60)  </span> <br />
+                                    <span style="padding-left: 6%;">
+                                    System.out.println("between 36-60"); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    else <br />
+                                    <span style="padding-left: 6%;">
+                                        System.out.println( "not matched" ); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                }</span> <br />
+                            }
+                            <br /> <br />
+                            Output: <br />
+                            Please enter Age: 35 <br />
+                            between 18-35
+                        </code>
+                    </div>
+                    <h3 style="padding-left: 20px;">switch statement</h3>
+                    <p class="para">
+                            The switch statement is a multi-way branch statement. 
+                            The switch statement of Java is another selection statement that defines multiple paths of execution of a program. 
+                            It provides a better alternative than a large series of if-else-if statements.
+                    </p>
+                    <div class="code">
+                        <code>
+                            import java.util.Scanner;  <br />
+                            public class Else_If_Ladder_Demo 
+                            {  <br />
+                                <span style="padding-left: 2%;">
+                                public static void main(String[] args) {  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    int age;  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    Scanner inputDevice = new Scanner(System.in); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    System.out.print("Please enter Age: "); </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    age = inputDevice.nextInt();  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    switch ( age )  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                    { </span> <br />
+                                    <span style="padding-left: 6%;">
+                                    case 18:  </span> <br />
+                                    <span style="padding-left: 10%;">
+                                    System.out.println( "age 18" );  </span> <br />
+                                    <span style="padding-left: 10%;">
+                                    break;  </span> <br />
+                                    <span style="padding-left: 6%;">
+                                    case 19:  </span> <br />
+                                    <span style="padding-left: 10%;">
+                                    System.out.println( "age 19" );  </span> <br />
+                                    <span style="padding-left: 10%;">
+                                    break;  </span> <br />
+                                    <span style="padding-left: 6%;">
+                                    default: </span> <br />
+                                    <span style="padding-left: 10%;">
+                                    System.out.println( "not matched" );  </span> <br />
+                                    <span style="padding-left: 10%;">
+                                    break;  </span> <br />
+                                    <span style="padding-left: 4%;">
+                                }</span> <br />
+                                <span style="padding-left: 2%;">
+                                }</span> <br />
+                            }
+                            <br /> <br />
+                            Output: <br />
+                            Please enter Age: 35 <br />
+                            between 18-35
+                        </code>
+                    </div>
+                    <h3 style="padding-left: 20px;">The ? : Operator</h3>
+                    <p class="para">
+                        We have covered <strong>conditional operator ? :</strong> in the previous chapter which can be used to replace <strong>if...else</strong> statements. 
+                        It has the following general form −
+                        <div class="code">
+                            <code>
+                                Exp1 ? Exp2 : Exp3;
+                            </code>
+                        </div>
+                        <p class="para"
+                        >Where Exp1, Exp2, and Exp3 are expressions. Notice the use and placement of the colon.<br />
+                        To determine the value of the whole expression, initially exp1 is evaluated.
+                        <ul>
+                            <li>If the value of exp1 is true, then the value of Exp2 will be the value of the whole expression.</li>
+                            <li>If the value of exp1 is false, then Exp3 is evaluated and its value becomes the value of the entire expression.</li>
+                        </ul>
+                        </p>
+                    </p>
+                </section>
+                <section class="main-section" id="Looping_Statements">
+                    <header>Looping Statements</header>
+                    <p class="para">
+                        In programming languages, loops are used to execute a set of instructions/functions repeatedly when some conditions become true. There are three types of loops in java.
+                        <ul>
+                            <li>for loop</li>
+                            <li>while loop</li>
+                            <li>do-while loop</li>
+                        </ul>  
+                    </p>
+                    <h3 style="padding-left: 20px;">Java For Loop vs While Loop vs Do While Loop</h3>
+                    <table width="85%" style="margin: 0 7%;" >
+                        <tr>
+                            <th>Parameters	</th>
+                            <th>for loop</th>
+                            <th>while loop</th>
+                            <th>do while loop</th>
+                        </tr>
+                        <tr>
+                            <td>Introduction</td>
+                            <td>The Java for loop is a control flow statement that iterates a part of the programs multiple times.</td>
+                            <td>The Java while loop is a control flow statement that executes a part of the programs repeatedly on the basis of given boolean condition.</td>
+                            <td>The Java do while loop is a control flow statement that executes a part of the programs at least once and the further execution depends upon the given boolean condition.</td>
+                        </tr>
+                        <tr>
+                            <td>When to use</td>
+                            <td>If the number of iteration is fixed, it is recommended to use for loop.</td>
+                            <td>If the number of iteration is not fixed, it is recommended to use while loop.</td>
+                            <td>If the number of iteration is not fixed and you must have to execute the loop at least once, 
+                            it is recommended to use the do-while loop.</td>
+                        </tr>
+                        <tr>
+                            <td>Syntax</td>
+                            <td >
+                                for(init;condition;incr/decr){
+                                    // code to be executed }<br />
+                                    
+                            </td>
+                            <td >
+                            while(condition){  <br />
+                                // code to be executed |<br />
+                                
+                            </td>
+                            <td >
+                            do{  <br />
+                                // code to be executed <br />
+                                }While(condition);
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Example</td>
+                            <td>
+                            //for loop  
+                                for(int i=1;i<=10;i++){  <br />
+                                System.out.println(i);  <br />
+                                }
+                            </td>
+                            <td>
+                                //while loop  <br />
+                                int i=1;  <br />
+                                while(i<=10){  <br />
+                                System.out.println(i);  <br />
+                                i++;  <br />
+                                } 
+                            </td>
+                            <td>
+                                //do-while loop  <br />
+                                int i=1;  <br />
+                                do{  <br />
+                                System.out.println(i);  <br />
+                                i++;  <br />
+                                }while(i<=10); 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Syntax for infinitive loop</td>
+                            <td>
+                                for(;;){  <br />
+                                    //code to be executed  <br />
+                                    }
+                            </td>
+                            <td>
+                                while(true){ <br /> 
+                                //code to be executed  <br />
+                                }
+                            </td>
+                            <td>
+                                do{  <br />
+                                //code to be executed  <br />
+                                }while(true);
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+                <section class="main-section" id="Arrays">
+                    <header>Arrays</header>
+                    <p class="para">
+                        Normally, an array is a collection of similar type of elements that have a contiguous memory location.
+                    </p>
+                    <p class="para">
+                        Java array is an object which contains elements of a similar data type. 
+                        It is a data structure where we store similar elements. We can store only a fixed set of elements in a Java array.
+                    </p>
+                    <p class="para">
+                        Array in java is index-based, the first element of the array is stored at the 0 index.
+                    </p>
+                    <div class="img-box">
+                    <figure>
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/array-2.png">
+                        <figcaption style="text-align: center;">Fig.2 - Array representation in memory.</figcaption>
+                    </figure>
+                  </div>
+                    <p class="para">
+                        <h3 style="padding-left: 20px;">Advanteges</h3>
+                        <ul>
+                            <li><strong>Code Optimization: </strong>It makes the code optimized, we can retrieve or sort the data efficiently.</li>
+                            <li><strong>Random Access: </strong>We can get any data located at an index position.</li>
+                        </ul>
+                    </p>
+                    <p class="para">
+                        <h3 style="padding-left: 20px;">Disadvanteges</h3>
+                        <ul>
+                            <li><strong>Size Limit:</strong> We can store only the fixed size of elements in the array. It doesn't grow its size at runtime. 
+                            To solve this problem, collection framework is used in Java which grows automatically.</li>
+                        </ul>
+                    </p>
+                    <h3 style="padding-left: 20px;">Types of array in java</h3>
+                    <p class="para">
+                        There are two types of array.
+                        <ul >
+                            <li>Single Dimensional Array</li>
+                            <li>Multi Dimensional Array</li>
+                        </ul>
+                    </p>
+                    <h3 style="padding-left: 20px;">Single Dimensional Array</h3>
+                    <h5 style="padding-left: 20px;">Syntax to Declare an Array in Java</h5>
+                    <div class="code">
+                        <code>
+                            dataType[] arr; (or)  <br />
+                            dataType []arr; (or)  <br />
+                            dataType arr[];  
+                        </code>
+                    </div>
+                    <h5 style="padding-left: 20px;">Instantiation of an Array in Java</h5>
+                    <div class="code">
+                        <code>
+                            arrayRefVar=new datatype[size];  
+                        </code>
+                    </div>
+                    <h5 style="padding-left: 20px;">Example of Java Array</h5>
+                    <div class="code">
+                        <code>
+                            //Java Program to illustrate how to declare, instantiate, initialize  <br />
+                            //and traverse the Java array.  <br />
+                            class Testarray{  <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            int a[]=new int[5];//declaration and instantiation  </span> <br />
+                            <span style="padding-left: 4%;">
+                            a[0]=10;//initialization  </span> <br />
+                            <span style="padding-left: 4%;">
+                            a[1]=20;  </span> <br />
+                            <span style="padding-left: 4%;">
+                            a[2]=70;  </span> <br />
+                            <span style="padding-left: 4%;">
+                            a[3]=40;  </span> <br />
+                            <span style="padding-left: 4%;">
+                            a[4]=50;  </span> <br>
+                            <span style="padding-left: 4%;">
+                            //traversing array  </span> <br />
+                            <span style="padding-left: 4%;">
+                            for(int i=0;i < a.length;i++)//length is the property of array  </span> <br />
+                            <span style="padding-left: 6%;">
+                            System.out.println(a[i]);  </span> <br />
+                            <span style="padding-left: 4%;">
+                            } </span> <br />
+                        } <br /> <br />
+                        output : <br /> 10 <br /> 20 <br /> 30 <br /> 40 <br />
+                        </code>
+                    </div>
+                    <h3 style="padding-left: 20px;">Multi Dimensional Array</h3>
+                    <p class="para">In such case, data is stored in row and column based index (also known as matrix form).</p>
+                    <h5 style="padding-left: 20px;">Syntax to Declare an Multidimentional Array in Java</h5>
+                    <div class="code">
+                        <code>
+                            dataType[][] arrayRefVar; (or)  <br />
+                            dataType [][]arrayRefVar; (or)  <br />
+                            dataType arrayRefVar[][]; (or)  <br />
+                            dataType []arrayRefVar[];   
+                        </code>
+                    </div>
+                    <h5 style="padding-left: 20px;">Instantiation of an multidimentional array in Java</h5>
+                    <div class="code">
+                        <code>
+                            int[][] arr=new int[3][3];//3 row and 3 column  
+                        </code>
+                    </div>
+                    <h5 style="padding-left: 20px;">Example of Multidimensional Java Array</h5>
+                    <p class="para">Let's see the simple example to declare, instantiate, initialize and print the 2Dimensional array.</p>
+                    <div class="code">
+                        <code>
+                            //Java Program to illustrate the use of multidimensional array  <br />
+                            class Testarray{  <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            //declaring and initializing 2D array  </span> <br />
+                            <span style="padding-left: 4%;">
+                            int a[][]={{1,2,3},{4,5,6},{7,8,9}};</span> <br />
+                            <span style="padding-left: 4%;">
+                            //printing 2D array  </span> <br />
+                            <span style="padding-left: 4%;">
+                            for(int i=0;i < a.length;i++){</span> <br />
+                            <span style="padding-left: 6%;">
+                            for(int i=0;i < a.length;i++){</span> <br />
+                            <span style="padding-left: 8%;">
+                            System.out.print(arr[i][j]+" ");</span> <br />
+                            <span style="padding-left: 8%;">
+                            }</span> <br />
+                            <span style="padding-left: 6%;">
+                            System.out.println();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            }</span> <br>
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+                            output : <br /> 1 2 3 <br /> 4 5 6 <br /> 7 8 9 <br />
+                        </code>
+                    </div>
+                    <h3 style="padding-left: 20px;">Jagged Array in Java</h3>
+                    <p class="para">If we are creating odd number of columns in a 2D array, it is known as a jagged array. 
+                        In other words, it is an array of arrays with different number of columns.</p>
+                    <div class="code">
+                        <code>
+                            //Java Program to illustrate the jagged array  <br />
+                            class Testarray{  <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            //declaring a 2D array with odd columns </span> <br />
+                            <span style="padding-left: 4%;">
+                            int arr[][] = new int[3][];  </span> <br />
+                            <span style="padding-left: 4%;">
+                            arr[0] = new int[3];  </span> <br />
+                            <span style="padding-left: 4%;">
+                            arr[1] = new int[4];  </span> <br />
+                            <span style="padding-left: 4%;">
+                            arr[2] = new int[2];  </span> <br />
+                            <span style="padding-left: 4%;">
+                            initializing a jagged array</span> <br />
+                            <span style="padding-left: 4%;">
+                            int count = 1;</span> <br />
+                            <span style="padding-left: 4%;">
+                            for (int i=0; i < arr.length; i++) </span> <br />
+                            <span style="padding-left: 6%;">
+                            for (int j=0; j < arr[i].length; j++) </span> <br />
+                            <span style="padding-left: 8%;">
+                            arr[i][j] = count++; </span> <br /> <br />
+                            
+                            <span style="padding-left: 4%;">
+                            //printing the data of a jagged array   </span> <br />
+                            <span style="padding-left: 4%;">
+                            for (int i=0; i < arr.length; i++){ </span> <br />
+                            <span style="padding-left: 6%;">
+                            for (int j=0; j < arr[i].length; j++){ </span> <br />
+                            <span style="padding-left: 8%;">
+                                System.out.print(arr[i][j]+" ");</span> <br />
+                            <span style="padding-left: 6%;">
+                            } </span> <br>
+                            <span style="padding-left: 6%;">
+                            System.out.println();//new line  </span> <br>
+                            <span style="padding-left: 4%;">
+                              }  </span> <br>
+                            <span style="padding-left: 2%;">
+                            }  </span> <br>
+                            }
+                            <br /> <br />
+                            output : <br /> 1 2 3 <br /> 4 5 6 7 <br /> 8 9 <br />
+                        </code>
+                    </div>
+                </section>
+                <section class="main-section" id="Methods">
+                    <header>Methods</header>
+                    <p class="para">
+                        A method is a collection of statements that perform some specific task and return result to the caller. 
+                        A method can perform some specific task without returning anything. Methods allow us to <strong>reuse</strong> the code without retyping the code. 
+                        In Java, every method must be part of some class which is different from languages like C, C++ and Python.
+                    </p>
+                    <p class="para">Methods are <strong>time savers</strong> and help us to <strong>reuse</strong> the code without retyping the code.</p>
+                    <h3 style="padding-left: 20px;">Method Declaration</h3>
+                    <div class="img-box">
+                    <figure>
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/methods-in-java.png">
+                        <figcaption style="text-align: center;">Fig.3 - Method declaration</figcaption>
+                    </figure>
+                  </div>
+                    <p class="para">In general, method declarations has six components :</p>
+                    <ul>
+                        <li>
+                            <strong>Modifier:</strong> Defines <strong>access</strong> type of the method i.e. from where it can be accessed in your application. 
+                            In Java, there 4 type of the access specifiers.
+                            <ul style="list-style-type: square;">
+                                <li>public: accessible in all class in your application.</li>
+                                <li>protected: accessible within the class in which it is defined and in its <strong>subclass(es)</strong></li>
+                                <li>private: accessible only within the class in which it is defined.</li>
+                                <li>default (declared/defined without using any modifier) : accessible within same class and package within which its class is defined.</li>
+                            </ul>
+                        </li>
+                        <li><strong>The return type :</strong> The data type of the value returned by the the method or void if does not return a value.</li>
+                        <li><strong>Method Name : </strong>the rules for field names apply to method names as well, but the convention is a little different.</li>
+                        <li><strong>Parameter list :</strong> Comma separated list of the input parameters are defined, preceded with their data type, 
+                            within the enclosed parenthesis. If there are no parameters, you must use empty parentheses ().</li>
+                        <li><strong>Exception list :</strong> The exceptions you expect by the method can throw, you can specify these exception(s).</li>
+                        <li><strong>Method body :</strong> it is enclosed between braces. The code you need to be executed to perform your intended operations.
+                        </li>
+                        <li><strong>Method signature:</strong> It consists of method name and parameter list (number of parameters, 
+                            type of the parameters and order of the parameters). Return type and exceptions are not considered as part of it.
+                            Method Signature of above function:</li>
+                    </ul>
+                    <div class="code">
+                        <code>max(int x, int y)</code>
+                    </div>
+                    <h5 style="padding-left: 20px;">How to name a Method?</h5>
+                    <p class="para">
+                        A method name is typically a single word that should be a verb in lowercase or multi-word, that begins with a verb in lowercase 
+                        followed by adjective, noun….. After the first word, first letter of each word should be capitalized. <br />
+                        For example: <br />
+                        findSum, computeMax, setX and getX <br />
+                        Generally, A method has a unique name within the class in which it is defined but sometime a method might have same name as other 
+                        method name within the same class as <strong> <a href="#Polymorphism" class="name-link" title="jump to Polymorphism">method overloading</a>
+                        </strong> is allowed in Java.
+                    </p>
+                    <h3 style="padding-left: 20px;">Calling a method</h3>
+                    <p class="para">
+                        The method needs to be called for using its functionality. There can be three situations when a method is called:
+                    </p>
+                    <p class="para">
+                        A method returns to the code that invoked it when:
+                    </p>
+                    <ul>
+                        <li>It completes all the statements in the method</li>
+                        <li>It reaches a return statement</li>
+                        <li>Throws an exception</li>
+                    </ul>
+                    <div class="code">
+                        <code>
+                            // Program to illustrate methodsin java <br /><br />
+                            import java.io.*;   <br />
+
+                            class Testarray{  <br />
+                            <span style="padding-left: 2%;">
+                            public int addTwoInt(int a, int b){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            // adding two integer value.  </span> <br />
+                            <span style="padding-left: 4%;">
+                            sum = a + b;  </span> <br /><br />
+                            <span style="padding-left: 4%;">
+                            //returning summation of two values. </span> <br />
+                            <span style="padding-left: 4%;">
+                            return sum;  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /><br />
+
+                            class GFG { 
+                            <span style="padding-left: 2%;">
+                            public static void main (String[] args) { </span> <br />
+                            <span style="padding-left: 4%;">
+                            // creating an instance of Addition class   </span> <br />
+                            <span style="padding-left: 4%;">
+                            Addition add = new Addition(); </span> <br /> <br />
+                            <span style="padding-left: 4%;">
+                            // calling addTwoInt() method to add two integer using instance created in above step.</span> <br /> <br />
+                            <span style="padding-left: 4%;">
+                            int s = add.addTwoInt(4,3); </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Sum of two integer values : "+ s); </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+                            Output : <br />
+                            Sum of two integer values : 7
+                        </code>
+                    </div>
+                    <h3 style="padding-left: 20px;">Implementation of function call</h3>
+                    <p class="para">Methods calls are implemented through stack. Whenever a method is called a stack frame is created 
+                        within the stack area and after that the arguments passed to and the local variables and value to be 
+                        returned by this called method are stored in this stack frame and when execution of the called method is 
+                        finished, the allocated stack frame would be deleted. There is a stack pointer register that tracks the top 
+                        of the stack which is adjusted accordingly.
+                    </p>
+                </section>
+                <section class="main-section" id="Inheritance">
+                    <header>Inheritance</header>
+                    <p class="para">
+                        Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object. It is an important part of OOPs (Object Oriented programming system).
+                    </p>
+                    <p class="para">
+                        The idea behind inheritance in Java is that you can create new classes that are built upon existing classes. 
+                        When you inherit from an existing class, you can reuse methods and fields of the parent class. 
+                        Moreover, you can add new methods and fields in your current class also.
+                    </p>
+                    <p class="para">
+                        Inheritance represents the IS-A relationship which is also known as a parent-child relationship.
+                    </p>
+                    <h3 style="padding-left: 20px;">Why use inheritance in java</h3>
+                    <ul>
+                        <li>For Method Overriding (so runtime polymorphism can be achieved).</li>
+                        <li>For Code Reusability.</li>
+                    </ul>
+                    <h3 style="padding-left: 20px;">Terms used in Inheritance</h3>
+                    <ul>
+                        <li><strong>class:</strong> A class is a group of objects which have common properties. It is a template or blueprint from which objects are created.
+                        </li>
+                        <li><strong>Sub Class/Child Class:</strong> Subclass is a class which inherits the other class. It is also called a derived class, extended class, or child class.
+                        </li>
+                        <li><strong>Super Class/Parent Class:</strong> Superclass is the class from where a subclass inherits the features. It is also called a base class or a parent class.
+                        </li>
+                        <li><strong>Reusability : </strong>As the name specifies, reusability is a mechanism which facilitates you to reuse the fields and methods of the existing 
+                            class when you create a new class. You can use the same fields and methods already defined in the previous class.
+                        </li>
+                    </ul>
+                    <h3 style="padding-left: 20px;">The syntax of Java Inheritance</h3>
+                    <div class="code">
+                        <code>
+                            class Subclass-name extends Superclass-name   <br />
+                            {   <br />
+                            <span style="padding-left: 2%;">
+                            //methods and fields  </span> <br />
+                            }
+                        </code>
+                    </div>
+                    <p class="para">The extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.</p>
+                    <p class="para">In the terminology of Java, a class which is inherited is called a parent or superclass, and the new class is called child or subclass.</p>
+                    <h3 style="padding-left: 20px;">Types of inheritance in java</h3>
+                    <p class="para">
+                        On the basis of class, there can be three types of inheritance in java: single, multilevel and hierarchical.
+                    </p>
+                    <p class="para">
+                        In java programming, multiple and hybrid inheritance is supported through interface only. We will learn about interfaces later.
+                    </p>
+                    <div class="img-box">
+                    <figure>
+                        <img src="https://static.javatpoint.com/images/core/typesofinheritance.jpg">
+                        <figcaption style="text-align: center;">Fig.4 - Inheritance types</figcaption>
+                    </figure>
+                  </div>
+
+                    <p class="para">When one class inherits multiple classes, it is known as multiple inheritance. <br /> For Example:</p>
+
+                    <div class="img-box">
+                    <figure>
+                        <img src="https://static.javatpoint.com/images/core/multiple.jpg">
+                        <figcaption style="text-align: center;">Fig.5 - Inheritance types</figcaption>
+                    </figure>
+                  </div>
+                    <h5 style="padding-left: 20px;">Single Inheritance</h5>
+                    <div class="code">
+                        <code>
+                            // Program to illustrate single inheritance java <br /><br />
+                            import java.io.*;   <br /> <br />
+                            class Animal{  <br />
+                            <span style="padding-left: 2%;">
+                            void eat(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("eating...");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br />
+                            } <br /> <br />
+                            class Dog extends Animal{  <br />
+                            <span style="padding-left: 2%;">
+                            void bark(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("barking...");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+                            
+                            class TestInheritance{  <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]){    </span> <br />
+                            <span style="padding-left: 4%;">
+                            Dog d = new Dog();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            d.bark();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            d.eat();  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /><br />
+
+                            Output : <br />
+                            barking... <br />
+                            eating...
+                        </code>
+                    </div>
+
+                    <h5 style="padding-left: 20px;">Multilevel Inheritance</h5>
+                    <div class="code">
+                        <code>
+                            // Program to illustrate multilevel inheritance java <br /><br />
+                            import java.io.*;   <br /><br />
+                            class Animal{  <br />
+                            <span style="padding-left: 2%;">
+                            void eat(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("eating...");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br />
+                            } <br /> <br />
+                            
+                            class Dog extends Animal{  <br />
+                            <span style="padding-left: 2%;">
+                            void bark(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("barking...");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+                            
+                            class BabyDog extends Dog{  <br />
+                            <span style="padding-left: 2%;">
+                            void weep(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("weeping...");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+
+                            class TestInheritance{  <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]){    </span> <br />
+                            <span style="padding-left: 4%;">
+                            BabyDog d = new BabyDog();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            d.weep();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            d.bark();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            d.eat();  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /><br />
+
+                            Output : <br />
+                            weeping... <br />
+                            barking... <br />
+                            eating...
+                        </code>
+                    </div>
+
+                    <h5 style="padding-left: 20px;">Hierarchical Inheritance</h5>
+                    <div class="code">
+                        <code>
+                            // Program to illustrate hierarchical inheritance java <br /><br />
+                            import java.io.*;   <br /><br />
+                            class Animal{  <br />
+                            <span style="padding-left: 2%;">
+                            void eat(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("eating...");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br />
+                            } <br /> <br />
+                            
+                            class Dog extends Animal{  <br />
+                            <span style="padding-left: 2%;">
+                            void bark(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("barking...");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+                            
+                            class Cat extends Animal{  <br />
+                            <span style="padding-left: 2%;">
+                            void meow(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("meowing...");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+
+                            class TestInheritance{  <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]){    </span> <br />
+                            <span style="padding-left: 4%;">
+                            Cat c = new Cat();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            c.meow();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            d.eat();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            //c.bark(); // Compile-Time Error </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /><br />
+
+                            Output : <br />
+                            meowing... <br />
+                            eating...
+                        </code>
+                    </div>
+
+                    <h3 style="padding-left: 20px;">Why multiple inheritance is not supported in java?</h3>
+                    <p class="para">
+                        To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
+                    </p>
+                    <p class="para">
+                        Consider a scenario where A, B, and C are three classes. The C class inherits A and B classes. 
+                        If A and B classes have the same method and you call it from child class object, there will be 
+                        ambiguity to call the method of A or B class.
+                    </p>
+                    <p class="para">
+                        Since compile-time errors are better than runtime errors, Java renders compile-time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error.
+                    </p>
+                    <div class="code">
+                        <code>
+                            // Program to illustrate hierarchical inheritance java <br /><br />
+                            import java.io.*;   <br /><br />
+                            class A{  <br />
+                            <span style="padding-left: 2%;">
+                            void msg(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Hello");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br />
+                            } <br /> <br />
+                            
+                            class B{  <br />
+                            <span style="padding-left: 2%;">
+                            void msg(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Welcome");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+                            
+                            class C extends A,B{  // suppose if it were<br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]){    </span> <br />
+                            <span style="padding-left: 4%;">
+                            C obj = new C();  </span> <br />
+                            <span style="padding-left: 4%;">
+                            obj.msg();  /Now which msg() method would be invoked? </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+
+                            Output : <br />
+                            Compile-Time Error
+                        </code>
+                    </div>
+                </section>
+                <section class="main-section" id="Overriding">
+                    <header>Overriding</header>
+                    <p class="para">
+                            If subclass (child class) has the same method as declared in the parent class, it is known as 
+                            <strong> method overriding in Java.</strong></p>
+                    <p class="para">In other words, If a subclass provides the specific implementation of the method that has been 
+                        declared by one of its parent class, it is known as method overriding.</p>
+                    <h3 style="padding-left: 20px;">Usage of Java Method Overriding</h3>
+                    <ul>
+                        <li>Method overriding is used to provide the specific implementation of a method which is already provided by its superclass.</li>
+                        <li>Method overriding is used for runtime polymorphism</li>
+                    </ul>
+                    <h3 style="padding-left: 20px;">Rules for Java Method Overriding</h3>
+                    <ul style="list-style-type: decimal;">
+                        <li>The method must have the same name as in the parent class</li>
+                        <li>The method must have the same parameter as in the parent class.</li>
+                        <li>There must be an IS-A relationship (inheritance).</li>
+                    </ul>
+                    <h3 style="padding-left: 20px;">Understanding the problem without method overriding</h3>
+                    <p class="para">Let's understand the problem that we may face in the program if we don't use method overriding.</p>
+                    <div class="code">
+                        <code>
+                            //Java Program to demonstrate why we need method overriding    <br />
+                            //Here, we are calling the method of parent class with child class object  <br />
+                            import java.io.*;   <br /><br />
+                            //Creating a parent class.  <br />
+                            class Vehicle{  <br />
+                            <span style="padding-left: 2%;">
+                            // defining a method </span> <br />
+                            <span style="padding-left: 2%;">
+                            void run(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Vehicle is running");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br />
+                            } <br /> <br />
+                            
+                            //Creating a child class.  <br />
+                            
+                            class Bike extends Vehicle{  <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]){    </span> <br />
+                            <span style="padding-left: 4%;">
+                            //creating an instance of child class </span> <br />
+                            <span style="padding-left: 4%;">
+                            Bike obj = new Bike();</span> <br />
+                            <span style="padding-left: 4%;">
+                            calling the method with child class object</span> <br />
+                            <span style="padding-left: 4%;">
+                            obj.run(); </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+
+                            Output : <br />
+                            Vehicle is running
+                        </code>
+                    </div>
+                    <p class="para">Problem is that I have to provide a specific implementation of run() method in subclass that is why we use method overriding.</p>
+                    <h3 style="padding-left: 20px;">Example of method overriding</h3>
+                    <p class="para">
+                        In this example, we have defined the run method in the subclass as defined in the parent 
+                        class but it has some specific implementation. The name and parameter of the method are 
+                        the same, and there is IS-A relationship between the classes, so there is method overriding.
+                    </p>
+                    <div class="code">
+                        <code>
+                            //Java Program to illustrate the use of Java Method Overriding  <br />
+                            import java.io.*;   <br /><br />
+                            //Creating a parent class.  <br />
+                            class Vehicle{  <br />
+                            <span style="padding-left: 2%;">
+                            // defining a method </span> <br />
+                            <span style="padding-left: 2%;">
+                            void run(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Vehicle is running");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br />
+                            } <br /> <br />
+                            
+                            //Creating a child class.  <br />
+                            
+                            class Bike extends Vehicle{  <br />
+                            <span style="padding-left: 2%;">
+                            //defining the same method as in the parent class   </span> <br />
+                            <span style="padding-left: 2%;">
+                            void run(){  </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Bike is running safely");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br /><br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String args[]){    </span> <br />
+                            <span style="padding-left: 4%;">
+                            Bike obj = new Bike(); // creating object </span> <br />
+                            <span style="padding-left: 4%;">
+                            obj.run();  // calling method </span> <br />
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /> <br />
+
+                            Output : <br />
+                            Bike is running safely
+                        </code>
+                    </div>
+
+                    <h3 style="padding-left: 20px;">Why can we not override static method?</h3>
+                    <p class="para">
+                        It is because the static method is bound with class whereas instance method is bound with an object. 
+                        Static belongs to the class area, and an instance belongs to the heap area.
+                    </p>
+                </section>
+                <section class="main-section" id="Polymorphism">
+                    <header>Polymorphism</header>
+                    <p class="para">
+                        <strong>Polymorphism in Java</strong> is a concept by which we can perform a single action in different ways. 
+                        Polymorphism is derived from 2 Greek words: poly and morphs. The word "poly" means many and "morphs" means forms. 
+                        So polymorphism means many forms.
+                    </p>
+                    <p class="para">
+                        There are two types of polymorphism in Java: compile-time polymorphism and runtime polymorphism. 
+                        We can perform polymorphism in java by method overloading and method overriding.
+                    </p>
+                    <p class="para">
+                        If you overload a static method in Java, it is the example of compile time polymorphism. 
+                        Here, we will focus on runtime polymorphism in java.
+                    </p>
+                    <h3 style="padding-left: 20px;">Runtime Polymorphism in Java</h3>
+                    <p class="para">
+                        <strong>Runtime polymorphism</strong> or <strong>Dynamic Method Dispatch</strong> is a process in which a call to an 
+                        overridden method is resolved at runtime rather than compile-time.
+                    </p>
+                    <p class="para">
+                        In this process, an overridden method is called through the reference variable of a superclass. The determination of 
+                        the method to be called is based on the object being referred to by the reference variable.
+                    </p>
+                    <p class="para">Let's first understand the upcasting before Runtime Polymorphism.</p>
+                    <h5 style="padding-left: 20px;">Upcasting</h5>
+                    <p class="para">
+                        If the reference variable of Parent class refers to the object of Child class, it is known as upcasting. <br /> For example:
+                    </p>
+                    <div class="img-box">
+                    <figure>
+                        <img src="https://www.geeksforgeeks.org/wp-content/uploads/Blank-Diagram-Page-1-4.jpeg">
+                        <figcaption style="text-align: center;">Fig.6 - Upcasting in Java</figcaption>
+                    </figure>
+                  </div>
+                    <div class="code">
+                        <code>
+                            class A{} <br />
+                            class B extends A{}   <br />
+                            A a=new B();//upcasting
+                        </code>
+                    </div>
+                    <p class="para">
+                        For upcasting, we can use the reference variable of class type or an interface type. <br /> For Example:
+                    </p>
+                    <div class="code">
+                        <code>
+                            interface I{}   <br />
+                            class A{}     <br />
+                            class B extends A implements I{}
+                        </code>
+                    </div>
+                    <p class="para">
+                        Here, the relationship of B class would be:
+                    </p>
+                    <div class="code">
+                        <code>
+                            B IS-A A   <br />
+                            B IS-A I     <br />
+                            B IS-A Object
+                        </code>
+                    </div>
+                    <p class="para">
+                        Since Object is the root class of all classes in Java, so we can write B IS-A Object.
+                    </p>
+
+                    <h3 style="padding-left: 20px;">Example of Java Runtime Polymorphism</h3>
+                    <p class="para">
+                        In this example, we are creating two classes Bike and Splendor. Splendor class extends 
+                        Bike class and overrides its run() method. We are calling the run method by the reference 
+                        variable of Parent class. Since it refers to the subclass object and subclass method overrides 
+                        the Parent class method, the subclass method is invoked at runtime.
+                    </p>
+                    <p class="para">
+                        Since method invocation is determined by the JVM not compiler, it is known as 
+                        <strong>runtime polymorphism.</strong>
+                    </p>
+                    <div class="code">
+                        <code>
+                            class Bike{    <br />
+                            <span style="padding-left: 2%;">
+                            void run(){ </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("running");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br />
+                            } <br /> <br />
+
+                            class Splendor extends Bike{  <br />
+                            <span style="padding-left: 2%;">
+                            void run(){ </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("running  safely with 60km");  </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br > <br />
+        
+                            <span style="padding-left: 2%;">
+                            public static void main(String[] args){ </span> <br />
+                            <span style="padding-left: 4%;">
+                            Bike b = new Splendor();//upcasting   </span> <br />
+                            <span style="padding-left: 4%;">
+                            b.run();   </span> <br />
+                            <span style="padding-left: 2%;">
+                            }  </span> <br />
+                            } <br /> <br />
+                            Output : <br />
+                            running safely with 60km.
+                        </code>
+                    </div>
+                </section>
+                <section class="main-section" id="Abstraction">
+                    <header>Abstraction</header>
+                    <p class="para">
+                        Data Abstraction is the property by virtue of which only the essential details are displayed to the user. 
+                        The trivial or the non-essentials units are not displayed to the user. Ex: A car is viewed as a car rather than 
+                        its individual components.
+                    </p>
+                    <p class="para">
+                        Data Abstraction may also be defined as the process of identifying only the required characteristics of an object 
+                        ignoring the irrelevant details.The properties and behaviors of an object differentiate it from other objects of similar 
+                        type and also help in classifying/grouping the objects.
+                    </p>
+                    <p class="para">
+                        Consider a real-life example of a man driving a car. The man only knows that pressing the accelerators will increase the 
+                        speed of car or applying brakes will stop the car but he does not know about how on pressing the accelerator the speed is 
+                        actually increasing, he does not know about the inner mechanism of the car or the implementation of accelerator, brakes etc 
+                        in the car. This is what abstraction is.
+                    </p>
+                    <p class="para">
+                        In java, abstraction is achieved by <strong><a href="#Interfaces" title="Jump to Interfaces" class="name-link">interfaces</a></strong> and abstract classes. We can achieve 100% abstraction using interfaces.
+                    </p>
+                    <h3 style="padding-left: 20px;">Abstract classes and Abstract methods :</h3>
+                    <ul>
+                        <li>An abstract class is a class that is declared with <strong>abstract keyword.</strong>
+                        </li>
+                        <li>An abstract method is a method that is declared without an implementation.
+                        </li>
+                        <li>An abstract class may or may not have all abstract methods. Some of them can be concrete methods.
+                        </li>
+                        <li>A method defined abstract must always be redefined in the subclass,thus making <strong><a href="#Overriding" title="Jump to Overriding" class="name-link">overriding</a></strong> compulsory OR either make subclass itself abstract.
+                        </li>
+                        <li>Any class that contains one or more abstract methods must also be declared with abstract keyword.
+                        </li>
+                        <li>There can be no object of an abstract class.That is, an abstract class can not be directly 
+                            instantiated with the </strong><em>new operator</em></strong>.
+                        </li>
+                        <li>An abstract class can have parametrized constructors and default constructor is always present in an abstract class.
+                        </li>
+                    </ul>
+
+                    <h5 style="padding-left: 20px;">When to use abstract classes and abstract methods with an example</h5>
+                    <p class="para">
+                        There are situations in which we will want to define a superclass that declares the structure of a given abstraction without 
+                        providing a complete implementation of every method. That is, sometimes we will want to create a superclass that only defines 
+                        a generalization form that will be shared by all of its subclasses, leaving it to each subclass to fill in the details.
+                    </p>
+                    <p class="para">
+                        Consider a classic “shape” example, perhaps used in a computer-aided design system or game simulation. The base type is “shape” 
+                        and each shape has a color, size and so on. From this, specific types of shapes are derived(inherited)-circle, square, triangle 
+                        and so on – each of which may have additional characteristics and behaviors. For example, certain shapes can be flipped. 
+                        Some behaviors may be different, such as when you want to calculate the area of a shape. The type hierarchy embodies both the 
+                        similarities and differences between the shapes.
+                    </p>
+                    <div class="img-box">
+                    <figure>
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/Abstract-classes-and-methods-Page-1.png">
+                        <figcaption style="text-align: center;">Fig.7 - Abstraction in Java</figcaption>
+                    </figure>
+                  </div>
+
+                    <div class="code">
+                        <code>
+                            // Java program to illustrate the <br />
+                            // concept of Abstraction <br />
+                            abstract class Shape{    <br /> <br />
+                            <span style="padding-left: 2%;">
+                            // these are abstract methods </span> <br />
+                            <span style="padding-left: 2%;">
+                            abstract double area(); </span> <br />
+                            <span style="padding-left: 2%;">
+                            public abstract String toString(); </span> <br /> <br/>
+                            <span style="padding-left: 2%;">
+                            // abstract class can have constructor </span> <br/>
+                            <span style="padding-left: 2%;">
+                            public Shape(String color) { </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Shape constructor called"); </span> <br />
+                            <span style="padding-left: 4%;">
+                            this.color = color; </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/><br />
+
+                            <span style="padding-left: 2%;">
+                            // this is a concrete method </span> <br />
+                            <span style="padding-left: 2%;">
+                            public String getColor() {  </span> <br />
+                            <span style="padding-left: 4%;">
+                            return color;  </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/>
+                            } <br /> <br />
+
+                            class Circle extends Shape{    <br />
+                            <span style="padding-left: 2%;">
+                            double radius; </span> <br /> <br />
+                            <span style="padding-left: 2%;">
+                            public Circle(String color,double radius) {  </span> <br /><br />
+                            <span style="padding-left: 4%;">
+                            // calling Shape constructor </span> <br /> <br/>
+                            <span style="padding-left: 4%;">
+                            super(color); </span> <br/>
+                            <span style="padding-left: 4%;">
+                            System.out.println("Circle constructor called"); </span> <br />
+                            <span style="padding-left: 4%;">
+                            this.radius = radius; </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/><br />
+
+                            <span style="padding-left: 2%;">
+                            @Override </span> <br />
+                            <span style="padding-left: 2%;">
+                            double area() {  </span> <br />
+                            <span style="padding-left: 4%;">
+                            return Math.PI * Math.pow(radius, 2);  </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/>
+
+                            <span style="padding-left: 2%;">
+                            @Override </span> <br />
+                            <span style="padding-left: 2%;">
+                            public String toString() {  </span> <br />
+                            <span style="padding-left: 4%;">
+                            return "Circle color is " + super.color + "and area is : " + area();   </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/>
+                            } <br /> <br />
+                            
+                            class Rectangle extends Shape{     <br />
+                            <span style="padding-left: 2%;">
+                            double length; </span> <br /> 
+                            <span style="padding-left: 2%;">
+                            double width; </span> <br /> <br />
+                            <span style="padding-left: 2%;">
+                            public Rectangle(String color,double length,double width) {   </span> <br /><br />
+                            <span style="padding-left: 4%;">
+                            // calling Shape constructor </span> <br /> <br/>
+                            <span style="padding-left: 4%;">
+                            super(color); </span> <br/>
+                            <span style="padding-left: 4%;">
+                            System.out.println("Rectangle constructor called"); </span> <br />
+                            <span style="padding-left: 4%;">
+                            this.length = length; </span> <br />
+                            <span style="padding-left: 4%;">
+                            this.width = width; </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/><br />
+
+                            <span style="padding-left: 2%;">
+                            @Override </span> <br />
+                            <span style="padding-left: 2%;">
+                            double area() {  </span> <br />
+                            <span style="padding-left: 4%;">
+                            return length*width;  </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/>
+
+                            <span style="padding-left: 2%;">
+                            @Override </span> <br />
+                            <span style="padding-left: 2%;">
+                            public String toString() {  </span> <br />
+                            <span style="padding-left: 4%;">
+                            return "Rectangle color is " + super.color + "and area is : " + area();   </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/>
+                            } <br /> <br />
+
+                            public class Test{     <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String[] args){ </span> <br /> 
+                            <span style="padding-left: 4%;">
+                            Shape s1 = new Circle("Red", 2.2);</span> <br />
+                            <span style="padding-left: 4%;">
+                            Shape s2 = new Rectangle("Yellow", 2, 4);</span> <br /> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println(s1.toString());</span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println(s2.toString());   </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br />
+                            } <br /><br/>
+
+                            Output : <br />
+                            Shape constructor called<br />
+                            Circle constructor called<br />
+                            Shape constructor called<br />
+                            Rectangle constructor called<br />
+                            Circle color is Redand area is : 15.205308443374602<br />
+                            Rectangle color is Yellowand area is : 8.0<br />
+                        </code>
+                    </div>
+
+                    <h5 style="padding-left: 20px;">Encapsulation vs Data Abstraction</h5>
+                    <ul>
+                        <li>Encapsulation is data hiding(information hiding) while Abstraction is detail hiding(implementation hiding).
+                        </li>
+                        <li>While encapsulation groups together data and methods that act upon the data, data abstraction deals with 
+                            exposing the interface to the user and hiding the details of implementation.
+                        </li>
+                    </ul>
+
+                    <h5 style="padding-left: 20px;">Advantages of Abstraction</h5>
+                    <ul>
+                        <li>It reduces the complexity of viewing the things.
+                        </li>
+                        <li>Avoids code duplication and increases reusability.
+                        </li>
+                        <li>Helps to increase security of an application or program as only important details are provided to the user.
+                        </li>
+                    </ul>
+                </section>
+                <section class="main-section" id="Encapsulation">
+                    <header>Encapsulation</header>
+                    <p class="para">
+                        Encapsulation is defined as the wrapping up of data under a single unit. It is the mechanism that binds together 
+                        code and the data it manipulates.Other way to think about encapsulation is, it is a protective shield that prevents 
+                        the data from being accessed by the code outside this shield.
+                        <ul>
+                            <li>Technically in encapsulation, the variables or data of a class is hidden from any other class and can be 
+                                accessed only through any member function of own class in which they are declared.</li>
+                            <li>As in encapsulation, the data in a class is hidden from other classes, so it is also known as data-hiding.</li>
+                            <li>Encapsulation can be achieved by: Declaring all the variables in the class as private and writing public 
+                                methods in the class to set and get the values of variables. </li>
+                        </ul>
+                    </p>
+
+                    <div class="img-box">
+                    <figure>
+                        <img src="https://www.cpp.thiyagaraaj.com/cms/assets/cimages/encapsulation.png">
+                        <figcaption style="text-align: center;">Fig.8 - Encapsulation in Java</figcaption>
+                    </figure>
+                  </div>
+    
+                    <div class="code">
+                        <code>
+                            // Java program to demonstrate encapsulation <br />
+                            public class Encapsulate{     <br />
+                            <span style="padding-left: 2%;">
+                            // private variables declared  </span> <br />
+                            <span style="padding-left: 2%;">
+                            // these can only be accessed by  </span> <br />
+                            <span style="padding-left: 2%;">
+                            // public methods of class</span> <br />
+                            <span style="padding-left: 2%;">
+                            private String geekName;   </span> <br />
+                            <span style="padding-left: 2%;">
+                            private int geekRoll;   </span> <br />
+                            <span style="padding-left: 2%;">
+                            private int geekAge;  </span> <br /><br />
+
+                            <span style="padding-left: 2%;"> <br/>
+                            // get method for age to access  </span> <br />
+                            <span style="padding-left: 2%;"><br />
+                            // private variable geekAge<br />
+                            <span style="padding-left: 2%;">
+                            public int getAge()   { </span> <br />
+                            <span style="padding-left: 4%;">
+                            return geekAge; </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/><br />
+                            
+                            <span style="padding-left: 2%;"> <br/>
+                            // get method for name to access</span><br />
+                            <span style="padding-left: 2%;"><br />
+                            // private variable geekName <br />
+                            <span style="padding-left: 2%;">
+                            public String getName()   { </span> <br />
+                            <span style="padding-left: 4%;">
+                            return geekName; </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/><br />
+
+                            <span style="padding-left: 2%;"> <br/>
+                            // get method for roll to access</span><br />
+                            <span style="padding-left: 2%;"><br />
+                            // private variable geekRoll <br />
+                            <span style="padding-left: 2%;">
+                            public int getRoll()   { </span> <br />
+                            <span style="padding-left: 4%;">
+                            return geekRoll; </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/><br />
+
+                            <span style="padding-left: 2%;"> <br/>
+                            // set method for age to access  </span> <br />
+                            <span style="padding-left: 2%;"><br />
+                            // private variable geekAge<br />
+                            <span style="padding-left: 2%;">
+                            public void setAge(int newAge)   { </span> <br />
+                            <span style="padding-left: 4%;">
+                            geekAge = newAge; </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/><br />
+                            
+                            <span style="padding-left: 2%;"> <br/>
+                            // set method for name to access </span> <br />
+                            <span style="padding-left: 2%;"><br />
+                            // private variable geekName<br />
+                            <span style="padding-left: 2%;">
+                            public void setName(String newName)   { </span> <br />
+                            <span style="padding-left: 4%;">
+                            geekName = newName; </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/><br />
+
+                            <span style="padding-left: 2%;"> <br/>
+                            // set method for roll to access </span> <br />
+                            <span style="padding-left: 2%;"><br />
+                            // private variable geekRoll <br />
+                            <span style="padding-left: 2%;">
+                            public void setRoll(int newRoll)   { </span> <br />
+                            <span style="padding-left: 4%;">
+                            geekRoll = newRoll; </span> <br />
+                            <span style="padding-left: 2%;">
+                            } </span> <br/>
+                            } <br /> <br/>
+                        </code>
+                    </div>
+
+                    <p class="para">
+                        In the above program the class EncapsulateDemo is encapsulated as the variables are declared as private. 
+                        The get methods like getAge() , getName() , getRoll() are set as public, these methods are used to access 
+                        these variables. The setter methods like setName(), setAge(), setRoll() are also declared as public and are 
+                        used to set the values of the variables.
+                    </p>
+                    <h5 style="padding-left: 20px;">The program to access variables of the class EncapsulateDemo is shown below:</h5>
+                    <div class="code">
+                        <code>
+                            public class TestEncapsulation <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String[] args){ </span> <br /> 
+                            <span style="padding-left: 4%;">
+                            Encapsulate obj = new Encapsulate(); </span> <br /><br  />
+                            <span style="padding-left: 4%;">
+                            // setting values of the variables </span> <br /> 
+                            <span style="padding-left: 4%;">
+                            obj.setName("Harsh"); </span> <br /> 
+                            <span style="padding-left: 4%;">
+                            obj.setAge(19); </span> <br /> 
+                            <span style="padding-left: 4%;">
+                            obj.setRoll(51);</span> <br /> <br />
+
+                            <span style="padding-left: 4%;">
+                            // Displaying values of the variables</span> <br /> 
+                            <span style="padding-left: 4%;">
+                            System.out.println("Geek's name: " + obj.getName());</span> <br /> 
+                            <span style="padding-left: 4%;">
+                            System.out.println("Geek's age: " + obj.getAge()); </span> <br /> 
+                            <span style="padding-left: 4%;">
+                            System.out.println("Geek's roll: " + obj.getRoll());</span> <br /><br />
+                            
+                            <span style="padding-left: 4%;">
+                            // Direct access of geekRoll is not possible due to encapsulation</span> <br /> 
+                            <span style="padding-left: 4%;">
+                            // System.out.println("Geek's roll: " + obj.geekName);</span> <br /> 
+                            
+                            <span style="padding-left: 2%;">
+                            } </span> <br />
+                            } <br /><br/>
+
+                            Output : <br />
+                            Geek's name: Harsh <br />
+                            Geek's age: 19 <br />
+                            Geek's roll: 51
+                        </code>
+                    </div>
+
+                    <h3 style="padding-left: 20px;">Advantages of Encapsulation</h3>
+                    <ul>
+                        <li>
+                            <strong>Data Hiding:</strong> The user will have no idea about the inner implementation of the class. 
+                            It will not be visible to the user that how the class is storing values in the variables. 
+                            He only knows that we are passing the values to a setter method and variables are getting initialized with that value.
+                        </li>
+                        <li>
+                            <strong>Increased Flexibility:</strong> We can make the variables of the class as read-only or write-only depending on our requirement. 
+                            If we wish to make the variables as read-only then we have to omit the setter methods like setName(), setAge() etc. 
+                            from the above program or if we wish to make the variables as write-only then we have to omit the get methods like 
+                            getName(), getAge() etc. from the above program.
+                        </li>
+                        <li>
+                            <strong>Reusability:</strong> Encapsulation also improves the re-usability and easy to change with new requirements.
+                        </li>
+                        <li>
+                            <strong>Testing code is easy:</strong> Encapsulated code is easy to test for unit testing.
+                        </li>
+                    </ul>
+                </section>
+                <section class="main-section" id="Interfaces">
+                    <header>Interfaces</header>
+                    <p class="para">
+                        Like a class, an interface can have methods and variables, 
+                        but the methods declared in interface are by default abstract (only method signature, no body).
+                        <ul>
+                            <li>
+                                Interfaces specify what a class must do and not how. It is the blueprint of the class.
+                            </li>
+                            <li>
+                                An Interface is about capabilities like a Player may be an interface and any class 
+                                implementing Player must be able to (or must implement) move(). So it specifies a set 
+                                of methods that the class has to implement.
+                            </li>
+                            <li>
+                                If a class implements an interface and does not provide method bodies for 
+                                all functions specified in the interface, then class must be declared abstract.
+                            </li>
+                            <li>
+                                A Java library example is, Comparator Interface. If a class implements this 
+                                interface, then it can be used to sort a collection.
+                            </li>
+                        </ul>
+                    </p>
+                    <h5 style="padding-left: 20px;">Syntax:</h5>
+                    <div class="code">
+                        <code>
+                            interface <interface_name> { <br />
+                            <span style="padding-left: 2%;">
+                            // declare constant fields </span> <br /> 
+                            <span style="padding-left: 2%;">
+                            // declare methods that abstract by default </span> <br />
+                            } <br />
+                        </code>
+                    </div>
+                    <p class="para">
+                        To declare an interface, use <strong>interface</strong> keyword. It is used to provide total abstraction. 
+                        That means all the methods in interface are declared with empty body and are public and all fields are public, 
+                        static and final by default. A class that implement interface must implement all the methods declared in 
+                        the interface. To implement interface use <strong>implements</strong> keyword.
+                    </p>
+                    <h3 style="padding-left: 20px;">Why do we use interface ?</h3>
+                    <ul>
+                        <li>It is used to achieve total abstraction.</li>
+                        <li>
+                            Since java does not support multiple inheritance in case of class, but by using interface 
+                            it can achieve multiple inheritance .</li>
+                        <li>It is also used to achieve loose coupling.</li>
+                        <li>
+                            Interfaces are used to implement abstraction. So the question arises why use interfaces when we have abstract classes?
+                        </li>
+                    </ul>
+                    <p class="para">
+                        The reason is, abstract classes may contain non-final variables, whereas variables in interface are final, public and static.
+                    </p>
+                    <div class="code">
+                        <code>
+                            // A simple interface <br />
+                            interface Player{ <br />
+                            <span style="padding-left: 2%;">
+                            final int id = 10;  </span> <br /> 
+                            <span style="padding-left: 2%;">
+                            int move();  </span> <br />
+                            } <br />
+                        </code>
+                    </div>
+                    <h5 style="padding-left: 20px;">To implement an interface we use keyword: implement</h5>
+                    <div class="code">
+                        <code>
+                            // Java program to demonstrate working of interface. <br />
+                            import java.io.*; <br /><br />
+
+                            // A simple interface <br />
+                            interface in1{ <br />
+                            <span style="padding-left: 2%;">
+                            // public, static and final   </span> <br /> 
+                            <span style="padding-left: 2%;">
+                            final int a = 10;  </span> <br /> <br />
+                            <span style="padding-left: 2%;">
+                            // public and abstract</span> <br /> 
+                            <span style="padding-left: 2%;">
+                            void display();   </span> <br /> 
+                            } <br /><br/>
+
+                            // A class that implements interface. <br />
+                            class testClass implements in1{  <br />
+                            <span style="padding-left: 2%;">
+                            // Implementing the capabilities of interface.  </span> <br /> 
+                            <span style="padding-left: 2%;">
+                            public void display() { </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Geek");</span> <br /> 
+                            <span style="padding-left: 2%;">
+                            }</span> <br /> <br />
+
+                            <span style="padding-left: 2%;">
+                            // Driver Code  </span> <br /> 
+                            <span style="padding-left: 2%;">
+                            public static void main (String[] args) { </span> <br />
+                            <span style="padding-left: 4%;">
+                            testClass t = new testClass();</span> <br /> 
+                            <span style="padding-left: 4%;">
+                            t.display();</span> <br /> 
+                            <span style="padding-left: 4%;">
+                            System.out.println(a); </span> <br /> 
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /><br />
+                            Output: <br />
+                            Geek <br/>
+                            10
+                        </code>
+                    </div>
+                    <h3 style="padding-left: 20px;">Important points about interface</h3>
+                    <ul>
+                        <li>
+                            We can’t create instance(interface can’t be instantiated) of 
+                            interface but we can make reference of it that refers to the Object of its implementing class.
+                        </li>
+                        <li>A class can implement more than one interface.</li>
+                        <li>An interface can extends another interface or interfaces (more than one interface) .</li>
+                        <li>A class that implements interface must implements all the methods in interface</li>
+                        <li>All the methods are public and abstract. And all the fields are public, static, and final.</li>
+                        <li>It is used to achieve multiple inheritance.</li>
+                        <li>It is used to achieve loose coupling.</li>
+                    </ul>
+                </section>
+                <section class="main-section" id="Packages">
+                    <header>Packages</header>
+                    <p class="para">
+                        <strong>Package</strong> in Java is a mechanism to encapsulate a group of classes, sub packages and interfaces. Packages are used for:
+                    </p>
+                    <ul>
+                        <li>
+                            We can’t create instance(interface can’t be instantiated) of 
+                            interface but we can make reference of it that refers to the Object of its implementing class.
+                        </li>
+                        <li>Making searching/locating and usage of classes, interfaces, enumerations and annotations easier.</li>
+                        <li>Providing controlled access: protected and default have package level access control. A protected member 
+                            is accessible by classes in the same package and its subclasses. A default member (without any access specifier) 
+                            is accessible by classes in the same package only.
+                        </li>
+                        <li>Packages can be considered as data encapsulation (or data-hiding).</li>
+                    </ul>
+                    <p class="para">
+                        All we need to do is put related classes into packages. After that we can simply write a import a class from 
+                        existing packages and use it in our program. A packages is container of group of related classes where some of 
+                        the classes are accessible are exposed and others are kept for internal purpose.
+                    </p> 
+                    <p class="para">
+                        We can reuse existing classes from the packages as many time as we need it in our program.
+                    </p>
+                    <h3 style="padding-left: 20px;">How packages work?</h3>
+                    <p class="para">
+                        Package names and directory structure are closely related. For example if a package name is college.staff.cse, 
+                        then there are three directories, college, staff and cse such that cse is present in staff and staff is present 
+                        college. Also, the directory college is accessible through <strong>CLASSPATH</strong> variable, i.e., path of parent 
+                        directory of college is present in CLASSPATH. The idea is to make sure that classes are easy to locate.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Package naming conventions : </strong>Packages are named in reverse order of domain names, i.e., 
+                            org.geeksforgeeks.practice. For example, in a college, the recommended convention is college.tech.cse, 
+                            college.tech.ee, college.art.history, etc.
+                        </li>
+                        <li>
+                            <strong>Adding a class to a Package : </strong>We can add more classes to an created package by using 
+                            package name at the top of the program and saving it in the package directory. We need a new 
+                            <strong>java</strong> file to define a public class, otherwise we can add the new class to an existing 
+                            <strong>.java</strong> file and recompile it.
+                        </li>
+                        <li>
+                            <strong>Subpackages: </strong>Packages that are inside another package are the <strong>subpackages</strong>. 
+                            These are not imported by default, they have to imported explicitly. Also, members of a subpackage have no 
+                            access privileges,i.e., they are considered as different package for protected and default access specifiers.
+                        </li>
+                    </ul>
+                    <h5 style="padding-left: 20px;">Example</h5>
+                    <div class="code">
+                        <code>
+                            import java.util.*;
+                        </code>
+                    </div>
+                    <p class="para"><strong>util</strong> is a subpackage created inside <strong>java</strong> package.</p>
+                    <h3 style="padding-left: 20px;">Accessing classes inside a package</h3>
+                    <p class="para">Consider following two statements :</p>
+                    <div class="code">
+                        <code>
+                            // import the Vector class from util package. <br />
+                            import java.util.vector; <br /> <br />
+                            // import all the classes from util package <br />
+                            import java.util.*; 
+                        </code>
+                    </div>
+                    <ul>
+                        <li>
+                            First Statement is used to import <strong>Vector</strong> class from <strong>util</strong> 
+                            package which is contained inside <strong>java</strong>.
+                        </li>
+                        <li>Second statement imports all the classes from <strong>util</strong> package.</li>
+                    </ul>
+                    <div class="code">
+                        <code>
+                            // All the classes and interfaces of this package <br />
+                            // will be accessible but not subpackages. <br />
+                            import package.*; <br /> <br />
+                            // Only mentioned class of this package will be accessible.<br />
+                            import package.classname;<br /><br />
+                            // Class name is generally used when two packages have same<br />
+                            // class name. For example in below code both packages have<br />
+                            // date class so using fully qualified name to avoid conflict<br />
+                            import java.util.Date;<br />
+                            import my.packag.Date;<br />
+                        </code>
+                    </div>
+                    <div class="code">
+                        <code>
+                            // Java program to demonstrate accessing of members when  <br />
+                            // a corresponding classes are imported and not imported. <br />
+                            import java.util.Vector; <br /><br />
+
+                            public class ImportDemo {  <br />
+                            <span style="padding-left: 2%;">
+                            public ImportDemo() { </span> <br />
+                            <span style="padding-left: 4%;">
+                            // java.util.Vector is imported, hence we are </span> <br />
+                            <span style="padding-left: 4%;">
+                            // able to access directly in our code. </span> <br />
+                            <span style="padding-left: 4%;">
+                            Vector newVector = new Vector();</span> <br /> <br />
+                            // java.util.ArrayList is not imported, hence </span> <br />
+                            <span style="padding-left: 4%;">
+                            // we were referring to it using the complete package.</span> <br />
+                            <span style="padding-left: 4%;">
+                            java.util.ArrayList newList = new java.util.ArrayList();</span> <br /> 
+                            <span style="padding-left: 2%;">
+                            }</span> <br /> <br />
+                            <span style="padding-left: 2%;">
+                            public static void main (String[] args) { </span> <br />
+                            <span style="padding-left: 4%;">
+                            new ImportDemo();</span> <br /> 
+                            <span style="padding-left: 2%;">
+                            }</span> <br />
+                            } <br /><br />
+                        </code>
+                    </div>
+                    <h3 style="padding-left: 20px;">Types of packages</h3>
+                    <div class="img-box">
+                    <figure>
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/java-types-of-packages.jpg">
+                        <figcaption style="text-align: center;">Fig.9 - Packages in Java</figcaption>
+                    </figure>
+                  </div>
+                    <h3 style="padding-left: 20px;">Built-in Packages</h3>
+                    <p class="para">
+                        These packages consist of a large number of classes which are a part of Java <strong>API</strong>.
+                        Some of the commonly used built-in packages are:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>java.lang :</strong> Contains language support classes(e.g classed which defines primitive data types, 
+                                math operations). This package is automatically imported.
+                        </li>
+                        <li>
+                            <strong>java.io : </strong>Contains classed for supporting input / output operations.
+                        </li>
+                        <li>
+                            <strong>java.util: </strong>Contains utility classes which implement data structures like Linked List, 
+                            Dictionary and support ; for Date / Time operations.
+                        </li>
+                        <li>
+                            <strong>java.applet: </strong>Contains classes for creating Applets.
+                        </li>
+                        <li>
+                            <strong>java.awt: </strong>Contain classes for implementing the components for graphical user interfaces (like button , ;menus etc).
+                        </li>
+                        <li>
+                            <strong>java.net: </strong>Contain classes for supporting networking operations.
+                        </li>
+                    </ul>
+                    <h3 style="padding-left: 20px;">User-defined Packages</h3>
+                    <p class="para">
+                        These are the packages that are defined by the user. First we create a directory <strong>myPackage </strong>
+                        (name should be same as the name of the package). Then create the <strong>MyClass</strong> inside the directory 
+                        with the first statement being the <strong>package names</strong>.
+                    </p>
+                    <div class="code">
+                        <code>
+                            // Name of the package must be same as the directory<br />
+                            // under which this file is saved<br />
+                            package myPackage; <br /><br />
+                            public class MyClass { <br>
+                            <span style="padding-left: 2%;">
+                            public void getNames(String s){</span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println(s); </span><br />
+                            <span style="padding-left: 2%;">
+                            }</span><br />
+                            }
+                        </code>
+                    </div>
+                    <p class="para">Now we can use the <strong>MyClass</strong> class in our program.</p>
+                    <div class="code">
+                        <code>
+                            /* import 'MyClass' class from 'names' myPackage */ <br />
+                            import myPackage.MyClass; <br /><br />
+                            public class PrintName{ <br>
+                            <span style="padding-left: 2%;">
+                            public static void main(String[] args){</span> <br />
+                            <span style="padding-left: 4%;">
+                            // Initializing the String variable with a value </span><br />
+                            <span style="padding-left: 4%;">
+                            String name = "Geeksforgeeks"; </span><br /><br />
+                            <span style="padding-left: 4%;">
+                            // Creating an instance of class MyClass in the package </span><br />
+                            <span style="padding-left: 4%;">
+                            MuClass obj = new MyClass(); </span><br />
+                            <span style="padding-left: 4%;">
+                            obj.getNames(name); </span><br />
+                            <span style="padding-left: 2%;">
+                            }</span><br />
+                            }
+                        </code>
+                    </div>
+                    <p class="para">
+                        <strong>Note: MyClass.java</strong> must be saved inside the <strong>myPackage</strong> 
+                        directory since it is a part of the package.
+                    </p>
+
+                    <h3 style="padding-left: 20px;">Using Static Import</h3>
+                    <p class="para">
+                        Static import is a feature introduced in <strong>Java</strong> programming language ( versions 5 and above ) 
+                        that allows members ( fields and methods ) defined in a class as public <strong>static</strong> to be used in 
+                        Java code without specifying the class in which the field is defined.
+                        <br />Following program demonstrates <strong>static import</strong>:
+                    </p>
+                    <div class="code">
+                        <code>
+                            / Note static keyword after import. <br />
+                            import static java.lang.System.*; <br /><br />
+                            class StaticImportDemo <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String[] args){</span> <br />
+                            <span style="padding-left: 4%;">
+                            // We don't need to use 'System.out' as imported using static. </span><br />
+                            <span style="padding-left: 4%;">
+                            out.println("GeeksforGeeks"); </span><br />
+                            <span style="padding-left: 2%;">
+                            }</span><br />
+                            }<br /> <br />
+                            Output: <br />
+                            GeeksforGeeks
+                        </code>
+                    </div>
+
+                    <h3 style="padding-left: 20px;">Handling name conflicts</h3>
+                    <p class="para">
+                        The only time we need to pay attention to packages is is when we have a name conflict . 
+                        For example both, java.util and java.sql packages have a class named Date. So if we import 
+                        both packages in program as follows:
+                    </p>
+                    <div class="code">
+                        <code>
+                            import java.util.*; <br />
+                            import java.sql.*; <br /><br />
+                            //And then use Date class , then we will get a compile time error : <br /><br />
+                            Date today ; //ERROR-- java.util.Date or java.sql.Date?
+                        </code>
+                    </div>
+                    <p class="para">
+                        The compiler will not be able to figure out which Date class do we want. 
+                        This problem can be solved by using specific import statement:
+                    </p>
+                    <div class="code">
+                        <code>
+                            import java.util.Date; <br />
+                            import java.sql.*;
+                        </code>
+                    </div>
+                    <p class="para">
+                        If we need both Date classes then , we need to use full package name every time we declare 
+                        new object of that class. <br />For Example:
+                    </p>
+                    <div class="code">
+                        <code>
+                            java.util.Date deadLine = new java.util.Date(); <br />
+                            java.sql.Date today = new java.sql.Date();
+                        </code>
+                    </div>
+
+                    <h3 style="padding-left: 20px;">Directory Structure</h3>
+                    <p class="para">
+                        TThe package name is closely associated with the directory structure used to store the classes. 
+                        The classes (and other entities) belonging to a specific package are stored together in the same directory. 
+                        Furthermore, they are stored in a sub-directory structure specified by its package name. For example, the 
+                        class Circle of package com.zzz.project1.subproject2 is stored as 
+                        <br />“$BASE_DIR\com\zzz\project1\subproject2\Circle.class”, where $BASE_DIR denotes the base directory of the package. 
+                        Clearly, the “dot” in the package name corresponds to a sub-directory of the file system.
+                    </p>
+                    <p class="para">
+                        The base directory ($BASE_DIR) could be located anywhere in the file system. Hence, the Java compiler and runtime 
+                        must be informed about the location of the $BASE_DIR so as to locate the classes. This is accomplished by an 
+                        environment variable called CLASSPATH. CLASSPATH is similar to another environment variable PATH, which is used 
+                        by the command shell to search for the executable programs.
+                    </p>
+                    <div class="code">
+                        <code>
+                            import java.util.*; <br />
+                            import java.sql.*; <br /><br />
+                            //And then use Date class , then we will get a compile time error : <br /><br />
+                            Date today ; //ERROR-- java.util.Date or java.sql.Date?
+                        </code>
+                    </div>
+                    <h5 style="padding-left: 20px;">Setting CLASSPATH</h5>
+                    <p class="para">CLASSPATH can be set by any of the following ways:</p>
+                    <ul>
+                        <li>
+                            CLASSPATH can be set permanently in the environment: In Windows, choose control panel ? 
+                            System ? Advanced ? Environment Variables ? choose “System Variables” (for all the users) or 
+                            “User Variables” (only the currently login user) ? choose “Edit” (if CLASSPATH already exists) 
+                            or “New” ? Enter “CLASSPATH” as the variable name ? Enter the required directories and JAR files 
+                            (separated by semicolons) as the value (e.g., “.;c:\javaproject\classes;d:\tomcat\lib\servlet-api.jar”). 
+                            Take note that you need to include the current working directory (denoted by ‘.’) in the CLASSPATH.
+                            <br />To check the current setting of the CLASSPATH, issue the following command:
+                        </li>
+                        <div class="code">
+                            <code>
+                                > SET CLASSPATH
+                            </code>
+                        </div>
+                        <li>
+                            CLASSPATH can be set temporarily for that particular CMD shell session by issuing the following command:
+                        </li>
+                        <div class="code">
+                            <code>
+                                > SET CLASSPATH=.;c:\javaproject\classes;d:\tomcat\lib\servlet-api.jar
+                            </code>
+                        </div>
+                        <li>
+                            Instead of using the CLASSPATH environment variable, you can also use the command-line option -classpath or 
+                            -cp of the javac and java commands, for example,
+                        </li>
+                        <div class="code">
+                            <code>
+                                > java –classpath c:\javaproject\classes com.abc.project1.subproject2.MyClass3
+                            </code>
+                        </div>
+                    </ul>
+
+                    <h5 style="padding-left: 20px;">Illustration of user-defined packages:</h5>
+                    <p class="para">
+                        Creating our first package: <br />File name – ClassOne.java
+                    </p>
+                    <div class="code">
+                        <code>
+                            package package_name; <br /><br />
+                            public class ClassOne { <br />
+                            <span style="padding-left: 2%;">
+                            public void methodClassOne() { </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Hello there its ClassOne"); </span><br />
+                            <span style="padding-left: 2%;">
+                            }</span><br />
+                            }<br /> <br />
+                        </code>
+                    </div>
+
+                    <p class="para">
+                        Creating our second package: <br />File name – ClassTwo.java
+                    </p>
+                    <div class="code">
+                        <code>
+                            package package_one; <br /><br />
+                            public class ClassTwo { <br />
+                            <span style="padding-left: 2%;">
+                            public void methodClassOne() { </span> <br />
+                            <span style="padding-left: 4%;">
+                            System.out.println("Hello there its ClassTwo"); </span><br />
+                            <span style="padding-left: 2%;">
+                            }</span><br />
+                            }<br /> <br />
+                        </code>
+                    </div>
+
+                    <p class="para">
+                        Making use of both the created packages: <br />File name – Testing.java
+                    </p>
+                    <div class="code">
+                        <code>
+                            import package_one.ClassTwo; <br />
+                            import package_name.ClassOne; <br /><br />
+                            public class Testing { <br />
+                            <span style="padding-left: 2%;">
+                            public static void main(String[] args) { </span> <br />
+                            <span style="padding-left: 4%;">
+                            ClassTwo a = new ClassTwo(); </span><br />
+                            <span style="padding-left: 4%;">
+                            ClassOne b = new ClassOne(); </span><br />
+                            <span style="padding-left: 4%;">
+                            a.methodClassTwo();  </span><br />
+                            <span style="padding-left: 4%;">
+                            b.methodClassOne();   </span><br />
+                            <span style="padding-left: 2%;">
+                            }</span><br />
+                            }<br /> <br />
+                            Output: <br />
+                            Hello there its ClassTwo <br />
+                            Hello there its ClassOne
+                        </code>
+                    </div>
+                    <p class="para">
+                        Now having a look at the directory structure of both the packages and the testing class file:
+                    </p>
+                    <div class="img-box">
+                    <figure>
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/112.jpg">
+                        <figcaption style="text-align: center;">Fig.10 - Directory structure</figcaption>
+                    </figure>
+                  </div>
+
+                    <h5 style="padding-left: 20px;">Important points:</h5>
+                    <ul>
+                        <li>Every class is part of some package.</li>
+                        <li>If no package is specified, the classes in the file goes into a special unnamed package 
+                            (the same unnamed package for all files).</li>
+                        <li>All classes/interfaces in a file are part of the same package. Multiple files can specify the 
+                            same package name.</li>
+                        <li>If package name is specified, the file must be in a subdirectory called name (i.e., the 
+                            directory name must match the package name).</li>
+                        <li>We can access public classes in another (named) package using: 
+                            <strong>package-name.class-name</strong></li>
+                    </ul>
+                </section>
+                <section class="main-section" id="References">
+                    <header>References</header>
+                    <p class="para">
+                        All the documentation in this page is taken from below sources:
+                    </p>
+                    <ul>
+                        <li><a href="https://www.geeksforgeeks.org/" class="name-link" target="_blank" title="Visit Geeksforgeeks">Geeksforgeeks</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.tutorialspoint.com/" class="name-link" target="_blank" title="Visit Tutorialspoint">Tutorialspoint</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.javatpoint.com/" class="name-link" target="_blank" title="Visit Javatpoint">Javatpoint</a></li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <!-- <center>Designed & Created By </center> -->
+        <center>Discovered and Designed By</center>
+        <center>Aashish Kushwaha </center>
+    </footer>
+</body>
+</html>
